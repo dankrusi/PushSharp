@@ -354,7 +354,7 @@ namespace PushSharp.Apple
                     (sender, targetHost, localCerts, remoteCert, acceptableIssuers) => certificate);
 
                 try {
-                    var tls = System.Security.Authentication.SslProtocols.Tls | System.Security.Authentication.SslProtocols.Tls11 | System.Security.Authentication.SslProtocols.Tls12;
+                    var tls = System.Security.Authentication.SslProtocols.Tls | System.Security.Authentication.SslProtocols.Tls11 | System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Ssl3;
                     stream.AuthenticateAsClient(Configuration.Host, certificates, tls, false);
                 } catch (System.Security.Authentication.AuthenticationException ex) {
                     throw new ApnsConnectionException ("SSL Stream Failed to Authenticate as Client", ex);

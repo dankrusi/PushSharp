@@ -38,7 +38,7 @@ namespace PushSharp.Apple
                 (sender, cert, chain, sslErrs) => { return true; },
                 (sender, targetHost, localCerts, remoteCert, acceptableIssuers) => { return certificate; });
 
-            var tls = System.Security.Authentication.SslProtocols.Tls | System.Security.Authentication.SslProtocols.Tls11 | System.Security.Authentication.SslProtocols.Tls12;
+            var tls = System.Security.Authentication.SslProtocols.Tls | System.Security.Authentication.SslProtocols.Tls11 | System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Ssl3;
             stream.AuthenticateAsClient(Configuration.FeedbackHost, certificates, tls, false);
 
 

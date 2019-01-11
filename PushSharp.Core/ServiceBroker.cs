@@ -14,6 +14,8 @@ namespace PushSharp.Core
         {
             ServicePointManager.DefaultConnectionLimit = 100;
             ServicePointManager.Expect100Continue = false;
+            //FIX: For TLS 1.2 support, see https://github.com/Redth/PushSharp/issues/819
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | SecurityProtocolType.Ssl3;
         }
 
         public ServiceBroker (IServiceConnectionFactory<TNotification> connectionFactory)
